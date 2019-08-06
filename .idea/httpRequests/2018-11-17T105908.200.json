@@ -1,0 +1,132 @@
+[
+  {
+    "invitationId": 2,
+    "inviter": {
+      "userId": 1,
+      "name": "Omar",
+      "email": "b00062014@aus.edu",
+      "password": ""
+    },
+    "invitee": {
+      "userId": 3,
+      "name": "omar",
+      "email": "a@b",
+      "password": ""
+    },
+    "project": {
+      "projectId": 1,
+      "name": "Senior design",
+      "description": "Cool senior design project",
+      "sections": [
+        {
+          "id": 1,
+          "name": "To do",
+          "colour": "#FF0000",
+          "project_id": 1,
+          "tasks": [
+            {
+              "taskId": 2,
+              "description": "Every Sunday at 5pm",
+              "name": "Advisor meeting",
+              "date": "Nov 12, 2018",
+              "projectId": 1,
+              "sectionId": 1,
+              "userId": 1,
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Recurring",
+          "colour": "#FF0000",
+          "project_id": 1,
+          "tasks": [
+            {
+              "taskId": 7,
+              "description": "Test",
+              "name": "Test",
+              "date": "Nov 12, 2018",
+              "projectId": 1,
+              "sectionId": 2,
+              "userId": 1,
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "In progress",
+          "colour": "#FF0000",
+          "project_id": 1,
+          "tasks": [
+            {
+              "taskId": 1,
+              "description": "Researching the capabilities of the loomo",
+              "name": "Research",
+              "projectId": 1,
+              "sectionId": 3,
+              "userId": 1,
+              "completed": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "To be discussed",
+          "colour": "#FF0000",
+          "project_id": 1,
+          "tasks": []
+        },
+        {
+          "id": 5,
+          "name": "Testing",
+          "colour": "#FF0000",
+          "project_id": 1,
+          "tasks": []
+        },
+        {
+          "id": 6,
+          "name": "On hold",
+          "colour": "#FF0000",
+          "project_id": 1,
+          "tasks": []
+        },
+        {
+          "id": 7,
+          "name": "Done",
+          "colour": "#0000FF",
+          "project_id": 1,
+          "tasks": [
+            {
+              "taskId": 6,
+              "name": "Quiz 2",
+              "date": "Oct 18, 2018",
+              "projectId": 1,
+              "sectionId": 7,
+              "completed": false
+            },
+            {
+              "taskId": 4,
+              "name": "Submit senior lab forms",
+              "date": "Oct 21, 2018",
+              "projectId": 1,
+              "sectionId": 7,
+              "userId": 2,
+              "completed": false
+            },
+            {
+              "taskId": 5,
+              "name": "Quiz 1",
+              "date": "Sep 27, 2018",
+              "projectId": 1,
+              "sectionId": 7,
+              "completed": false
+            }
+          ]
+        }
+      ]
+    },
+    "status": 0
+  }
+]

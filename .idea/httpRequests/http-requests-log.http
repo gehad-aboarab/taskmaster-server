@@ -1,0 +1,56 @@
+GET http://localhost:8080/myapp/projects/by-user/1
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+GET http://localhost:8080/myapp/?userId=1
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+GET http://localhost:8080/myapp/?userId=1
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+GET http://localhost:8080/myapp/projects/1/members?token=likbbt273pr0n8d7jqfu35a7i7
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+GET http://localhost:8080/myapp/projects/1/members?token=likbbt273pr0n8d7jqfu35a7i7
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+GET http://localhost:8080/myapp/projects/1/members?token=likbbt273pr0n8d7jqfu35a7i7
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+GET http://localhost:8080/myapp/projects/1/members?token=likbbt273pr0n8d7jqfu35a7i7
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+GET http://localhost:8080/myapp/projects/1/members?token=likbbt273pr0n8d7jqfu35a7i7
+Accept: : */*
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+###
+

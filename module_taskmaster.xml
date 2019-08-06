@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_taskmaster" default="compile.module.taskmaster">
+  <dirname property="module.taskmaster.basedir" file="${ant.file.module_taskmaster}"/>
+  
+  <property name="module.jdk.home.taskmaster" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.taskmaster" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.taskmaster" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.taskmaster" value="-encoding UTF-8 -source 7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="taskmaster.output.dir" value="${module.taskmaster.basedir}/target/classes"/>
+  <property name="taskmaster.testoutput.dir" value="${module.taskmaster.basedir}/target/test-classes"/>
+  
+  <path id="taskmaster.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="taskmaster.module.production.classpath">
+    <path refid="${module.jdk.classpath.taskmaster}"/>
+    <path refid="library.mysql:mysql-connector-java:8.0.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http-server:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-framework:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.27.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.27.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-binding:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.json:1.1.classpath"/>
+    <path refid="library.maven:_org.eclipse:yasson:1.0.classpath"/>
+    <path refid="library.maven:_javax.json:javax.json-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.enterprise:cdi-api:2.0.classpath"/>
+    <path refid="library.maven:_javax.el:javax.el-api:3.0.0.classpath"/>
+    <path refid="library.maven:_javax.interceptor:javax.interceptor-api:1.2.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+  </path>
+  
+  <path id="taskmaster.runtime.production.module.classpath">
+    <pathelement location="${taskmaster.output.dir}"/>
+    <path refid="library.mysql:mysql-connector-java:8.0.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http-server:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-framework:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.27.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.27.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-binding:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.json:1.1.classpath"/>
+    <path refid="library.maven:_org.eclipse:yasson:1.0.classpath"/>
+    <path refid="library.maven:_javax.json:javax.json-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.enterprise:cdi-api:2.0.classpath"/>
+    <path refid="library.maven:_javax.el:javax.el-api:3.0.0.classpath"/>
+    <path refid="library.maven:_javax.interceptor:javax.interceptor-api:1.2.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+  </path>
+  
+  <path id="taskmaster.module.classpath">
+    <path refid="${module.jdk.classpath.taskmaster}"/>
+    <pathelement location="${taskmaster.output.dir}"/>
+    <path refid="library.mysql:mysql-connector-java:8.0.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http-server:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-framework:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.27.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.27.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-binding:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.json:1.1.classpath"/>
+    <path refid="library.maven:_org.eclipse:yasson:1.0.classpath"/>
+    <path refid="library.maven:_javax.json:javax.json-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.enterprise:cdi-api:2.0.classpath"/>
+    <path refid="library.maven:_javax.el:javax.el-api:3.0.0.classpath"/>
+    <path refid="library.maven:_javax.interceptor:javax.interceptor-api:1.2.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_junit:junit:4.9.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+  </path>
+  
+  <path id="taskmaster.runtime.module.classpath">
+    <pathelement location="${taskmaster.testoutput.dir}"/>
+    <pathelement location="${taskmaster.output.dir}"/>
+    <path refid="library.mysql:mysql-connector-java:8.0.13.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:javax.inject:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http-server:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-http:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.grizzly:grizzly-framework:2.4.0.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-common:2.27.classpath"/>
+    <path refid="library.maven:_javax.annotation:javax.annotation-api:1.2.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:osgi-resource-locator:1.0.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-server:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.core:jersey-client:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-jaxb:2.27.classpath"/>
+    <path refid="library.maven:_javax.validation:validation-api:1.1.0.final.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:javax.ws.rs-api:2.1.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.inject:jersey-hk2:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-locator:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2.external:aopalliance-repackaged:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-api:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_javax.inject:javax.inject:1.classpath"/>
+    <path refid="library.maven:_org.glassfish.hk2:hk2-utils:2.5.0-b42.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.22.0-cr2.classpath"/>
+    <path refid="library.maven:_org.glassfish.jersey.media:jersey-media-json-binding:2.27.classpath"/>
+    <path refid="library.maven:_org.glassfish:javax.json:1.1.classpath"/>
+    <path refid="library.maven:_org.eclipse:yasson:1.0.classpath"/>
+    <path refid="library.maven:_javax.json:javax.json-api:1.1.classpath"/>
+    <path refid="library.maven:_javax.enterprise:cdi-api:2.0.classpath"/>
+    <path refid="library.maven:_javax.el:javax.el-api:3.0.0.classpath"/>
+    <path refid="library.maven:_javax.interceptor:javax.interceptor-api:1.2.classpath"/>
+    <path refid="library.maven:_javax.json.bind:javax.json.bind-api:1.0.classpath"/>
+    <path refid="library.maven:_junit:junit:4.9.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.1.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.taskmaster">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.taskmaster">
+    <patternset refid="excluded.from.module.taskmaster"/>
+  </patternset>
+  
+  <path id="taskmaster.module.sourcepath">
+    <dirset dir="${module.taskmaster.basedir}">
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  <path id="taskmaster.module.test.sourcepath">
+    <dirset dir="${module.taskmaster.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.taskmaster" depends="compile.module.taskmaster.production,compile.module.taskmaster.tests" description="Compile module taskmaster"/>
+  
+  <target name="compile.module.taskmaster.production" depends="register.custom.compilers" description="Compile module taskmaster; production classes">
+    <mkdir dir="${taskmaster.output.dir}"/>
+    <javac2 destdir="${taskmaster.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taskmaster}/javac">
+      <compilerarg line="${compiler.args.taskmaster}"/>
+      <bootclasspath refid="taskmaster.module.bootclasspath"/>
+      <classpath refid="taskmaster.module.production.classpath"/>
+      <src refid="taskmaster.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taskmaster"/>
+    </javac2>
+    
+    <copy todir="${taskmaster.output.dir}">
+      <fileset dir="${module.taskmaster.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.taskmaster.tests" depends="register.custom.compilers,compile.module.taskmaster.production" description="compile module taskmaster; test classes" unless="skip.tests">
+    <mkdir dir="${taskmaster.testoutput.dir}"/>
+    <javac2 destdir="${taskmaster.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.taskmaster}/javac">
+      <compilerarg line="${compiler.args.taskmaster}"/>
+      <bootclasspath refid="taskmaster.module.bootclasspath"/>
+      <classpath refid="taskmaster.module.classpath"/>
+      <src refid="taskmaster.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.taskmaster"/>
+    </javac2>
+    
+    <copy todir="${taskmaster.testoutput.dir}">
+      <fileset dir="${module.taskmaster.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.taskmaster" description="cleanup module">
+    <delete dir="${taskmaster.output.dir}"/>
+    <delete dir="${taskmaster.testoutput.dir}"/>
+  </target>
+</project>

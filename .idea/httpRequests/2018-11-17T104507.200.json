@@ -1,0 +1,19 @@
+[
+  {
+    "invitationId": 2,
+    "invitee": {
+      "email": "a@b",
+      "name": "omar",
+      "password": "",
+      "userId": 3
+    },
+    "inviter": {
+      "email": "b00062014@aus.edu",
+      "name": "Omar",
+      "password": "",
+      "userId": 1
+    },
+    "projectId": 1,
+    "status": 0
+  }
+]
